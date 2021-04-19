@@ -38,6 +38,8 @@ la revue de code sur Angular portera sur :
 * Clarté du découpage en composants, fonctionnalités
 * Pertinence des choix effectués (Composants, classes, services, tests...)
 
+Lors de la dernière séance une présentation par le binôme du projet et discussion autour du travail sera a prévoir.
+
 ## Requis fonctionnels Minimum de l'application
 L'application proposée doit satisfaire les besoins fonctionnels définis ci dessous. Un mockup est disponible en annexe, vous pouvez réaliser le votre avant de commencer et le mettre dans le repertoire **Documentation** si vous le souhaitez.
 
