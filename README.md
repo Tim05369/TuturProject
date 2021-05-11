@@ -102,8 +102,8 @@ Vous trouverez sur ce [dépot](https://github.com/gbesset-formateur/etu-iut-casi
 
 ### Informations diverses
 #### backend java
-* La version 0.0.1 est la version non sécurisée ou n'importe quel user peut faire des actions (Add et Delete)
-* La version 0.0.2 est la version sécurisée ou les actions d'admin (Add, Delete) sont protégées par un token qu'il faut récupérer via le login. (En cours de développement à ce jour)
+* La version 0.0.3 est la version non sécurisée ou n'importe quel user peut faire des actions (Add et Delete)
+* La version 0.1.0 est la version sécurisée ou les actions d'admin (Add, Delete) sont protégées par un token qu'il faut récupérer via le login. (En cours de développement à ce jour)
 
 #### API booking
 Lorsque vous utilisez booking il n'est pas necessaire de mettre les objets complets de customer et vehicle dans la requete. seul leur Id suffit.
