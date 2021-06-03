@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
+import { AdminComponent } from './admin/admin.component';
 import { ListVehiculeComponent } from './list-vehicule/list-vehicule.component';
 import { DetailsVehiculeComponent } from './details-vehicule/details-vehicule.component';
 
@@ -12,6 +13,7 @@ import { DetailsVehiculeComponent } from './details-vehicule/details-vehicule.co
   declarations: [
     AppComponent,
     HomeComponent,
+    AdminComponent
     ListVehiculeComponent
     DetailsVehiculeComponent
   ],
