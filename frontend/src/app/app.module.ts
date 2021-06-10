@@ -11,6 +11,9 @@ import { ListVehiculeComponent } from './list-vehicule/list-vehicule.component';
 import { DetailsVehiculeComponent } from './details-vehicule/details-vehicule.component';
 import { ContactComponent } from './contact/contact.component';
 
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatButtonModule} from "@angular/material/button";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +27,9 @@ import { ContactComponent } from './contact/contact.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
