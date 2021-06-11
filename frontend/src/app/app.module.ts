@@ -13,6 +13,7 @@ import { ContactComponent } from './contact/contact.component';
 
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -30,6 +31,8 @@ import {MatButtonModule} from "@angular/material/button";
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
