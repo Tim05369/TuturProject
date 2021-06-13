@@ -14,9 +14,9 @@ import { LoginComponent } from './login/login.component';
 
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
+import {HttpClientModule} from "@angular/common/http";
+import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
-
-import { HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -35,6 +35,7 @@ import { HttpClientModule} from "@angular/common/http";
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
+    MatCardModule,
     MatGridListModule,
     HttpClientModule
   ],

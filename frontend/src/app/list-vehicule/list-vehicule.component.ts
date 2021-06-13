@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {VehiculeService} from "../vehicule.service";
+import {Vehicule} from "../Vehicule";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-vehicule',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListVehiculeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router, private vehiculeService: VehiculeService) { }
+
+  listVehicule: Vehicule[] = [];
 
   ngOnInit(): void {
+    this.vehiculeService.getVehicules().subscribe(
+        data=>
+        {
+          this.listVehicule = data;
+        }
+    )
   }
 
+  goToVehicule(licencePlate: string) {
+    this.router.navigateByUrl("/locations/vehicule?licencePlate="+licencePlate)
+  }
 }
