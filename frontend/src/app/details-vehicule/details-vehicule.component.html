@@ -1,1 +1,18 @@
-<p>details-vehicule works!</p>
+<div *ngIf="vehicule != undefined" class="content">
+    <div class="left">
+        <img src="{{vehicule.urlImg}}">
+    </div>
+    <div class="right">
+        <ul>
+            <li>Plaque : {{vehicule.licencePlate}}</li>
+            <li>Marque : {{vehicule.brand}}</li>
+            <li>Modèle : {{vehicule.model}}</li>
+            <li>Couleur : {{vehicule.color}}</li>
+            <li>Prix de location : {{vehicule.rentalPrice}}</li>
+            <li>Prix au kilomètre : {{vehicule.kmPrice}}</li>
+            <li>Chevaux : {{vehicule.horsePower}}</li>
+        </ul>
+        <button mat-raised-button color="primary">Louer</button>
+    </div>
+</div>
+
