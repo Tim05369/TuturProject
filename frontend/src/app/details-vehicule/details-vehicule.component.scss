@@ -1,0 +1,22 @@
+.content {
+  margin-top: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+  text-align: left;
+}
+ul > li {
+  font-size: large;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
