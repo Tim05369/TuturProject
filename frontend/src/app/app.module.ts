@@ -16,6 +16,8 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatGridListModule} from "@angular/material/grid-list";
 
+import { HttpClientModule} from "@angular/common/http";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,8 @@ import {MatGridListModule} from "@angular/material/grid-list";
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatGridListModule
+    MatGridListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
