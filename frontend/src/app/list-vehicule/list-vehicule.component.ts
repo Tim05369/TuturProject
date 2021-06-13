@@ -24,7 +24,6 @@ export class ListVehiculeComponent implements OnInit {
   }
 
   goToVehicule(licencePlate: string) {
-    const navigationDetails: string[] = ['/locations/vehicule?licencePlate='+licencePlate];
     this.router.navigateByUrl("/locations/vehicule?licencePlate="+licencePlate)
   }
 }
