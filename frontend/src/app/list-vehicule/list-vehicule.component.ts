@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {VehiculeService} from "../vehicule.service";
 import {Vehicule} from "../Vehicule";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-vehicule',
@@ -9,7 +10,7 @@ import {Vehicule} from "../Vehicule";
 })
 export class ListVehiculeComponent implements OnInit {
 
-  constructor(private vehiculeService: VehiculeService) { }
+  constructor(private router:Router, private vehiculeService: VehiculeService) { }
 
   listVehicule: Vehicule[] = [];
 
@@ -22,4 +23,8 @@ export class ListVehiculeComponent implements OnInit {
     )
   }
 
+  goToVehicule(licencePlate: string) {
+    const navigationDetails: string[] = ['/locations/vehicule?licencePlate='+licencePlate];
+    this.router.navigateByUrl("/locations/vehicule?licencePlate="+licencePlate)
+  }
 }
