@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Observable, of} from "rxjs";
 import {Vehicule} from "./Vehicule";
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,6 @@ export class VehiculeService {
   constructor(private httpclient: HttpClient) { }
 
   getVehicules(): Observable<Vehicule[]>{
-    return this.httpclient.get<Vehicule[]>(this.vehiculesURL)
+    return this.httpclient.get<Vehicule[]>(this.vehiculesURL);
   }
 }
