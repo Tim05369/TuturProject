@@ -10,6 +10,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ListVehiculeComponent } from './list-vehicule/list-vehicule.component';
 import { DetailsVehiculeComponent } from './details-vehicule/details-vehicule.component';
 import { ContactComponent } from './contact/contact.component';
+import { LoginComponent } from './login/login.component';
 
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
@@ -25,7 +26,8 @@ import {MatGridListModule} from "@angular/material/grid-list";
     AdminComponent,
     ListVehiculeComponent,
     DetailsVehiculeComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -33,10 +35,9 @@ import {MatGridListModule} from "@angular/material/grid-list";
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    BrowserModule,
-    HttpClientModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
