@@ -10,9 +10,10 @@ import { Router } from '@angular/router';
 })
 export class ListVehiculeComponent implements OnInit {
 
-  constructor(private router:Router, private vehiculeService: VehiculeService) { }
-
   listVehicule: Vehicule[] = [];
+  valueColorFilter = "";
+
+  constructor(private router:Router, private vehiculeService: VehiculeService) { }
 
   ngOnInit(): void {
     this.vehiculeService.getVehicules().subscribe(
@@ -25,5 +26,14 @@ export class ListVehiculeComponent implements OnInit {
 
   goToVehicule(licencePlate: string) {
     this.router.navigateByUrl("/locations/vehicule?licencePlate="+licencePlate)
+  }
+
+  filterItemByColor(color: any) {
+    this.vehiculeService.getVehiculesFilterByColor(color).subscribe(
+        data=>
+        {
+          this.listVehicule = data;
+        }
+    )
   }
 }
