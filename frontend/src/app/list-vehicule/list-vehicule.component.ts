@@ -12,6 +12,7 @@ export class ListVehiculeComponent implements OnInit {
 
   listVehicule: Vehicule[] = [];
   valueColorFilter = "";
+  valueBrandFilter = "";
 
   constructor(private router:Router, private vehiculeService: VehiculeService) { }
 
@@ -30,6 +31,15 @@ export class ListVehiculeComponent implements OnInit {
 
   filterItemByColor(color: any) {
     this.vehiculeService.getVehiculesFilterByColor(color).subscribe(
+        data=>
+        {
+          this.listVehicule = data;
+        }
+    )
+  }
+
+  filterItemByBrand(brand: any) {
+    this.vehiculeService.getVehiculesFilterByBrand(brand).subscribe(
         data=>
         {
           this.listVehicule = data;
