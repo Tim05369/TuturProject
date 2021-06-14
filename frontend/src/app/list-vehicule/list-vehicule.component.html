@@ -1,3 +1,15 @@
+<!--<md-input #myInput placeholder="Filtrer par couleur" (input)="filterItemByColor(myInput.nodeValue)"></md-input>-->
+
+<mat-grid-list cols="2" rows="1" >
+    <mat-form-field class="example-form-field">
+        <mat-label>Filtrer par couleur</mat-label>
+        <input matInput #colorFilter type="text" [(ngModel)]="valueColorFilter" (change)="filterItemByColor(colorFilter.value)">
+        <button *ngIf="valueColorFilter" matSuffix mat-icon-button aria-label="Clear" (click)="valueColorFilter=''">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+</mat-grid-list>
+
 <mat-grid-list cols="3">
     <mat-grid-tile *ngFor="let vehicule of listVehicule">
         <mat-card class="example-card">
