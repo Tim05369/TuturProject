@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+import {VehiculeService} from "../vehicule.service";
+import {Vehicule} from "../Vehicule";
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private vehiculeService: VehiculeService) { }
+
+  listVehicule: Vehicule[] = [];
 
   ngOnInit(): void {
+    this.vehiculeService.getVehicules().subscribe(
+        data=>
+        {
+          this.listVehicule = data;
+        }
+    )
   }
 
+  ajouterVehicule() {
+    //TODO
+  }
+
+  editerVehicule(licencePlate: string) {
+    //TODO
+  }
+
+  supprimerVehicule(licencePlate: string) {
+    //TODO
+  }
 }
