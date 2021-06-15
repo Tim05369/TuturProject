@@ -1,1 +1,23 @@
-<p>admin works!</p>
+<mat-tab-group mat-align-tabs="start">
+    <mat-tab #vehiculesList label="vehicules">
+        <button mat-button (click)="ajouterVehicule()">Ajouter un nouveau véhicule</button>
+        <mat-grid-list cols="3">
+            <mat-grid-tile *ngFor="let vehicule of listVehicule">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>{{vehicule.model}}</mat-card-title>
+                        <mat-card-subtitle>{{vehicule.brand}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image src="{{vehicule.urlImg}}" alt="Image">
+                    <mat-card-actions>
+                        <button mat-button (click)="editerVehicule(vehicule.licencePlate)">Modifier</button>
+                        <button mat-button (click)="supprimerVehicule(vehicule.licencePlate)">Supprimer</button>
+                    </mat-card-actions>
+                </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-tab>
+    <mat-tab label="custommer">
+    </mat-tab>
+</mat-tab-group>

@@ -17,6 +17,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
+import {MatTabsModule} from "@angular/material/tabs";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
@@ -41,6 +42,7 @@ import {FormsModule} from "@angular/forms";
     MatCardModule,
     MatGridListModule,
     HttpClientModule,
+    MatTabsModule
     MatInputModule,
     MatIconModule,
     FormsModule
