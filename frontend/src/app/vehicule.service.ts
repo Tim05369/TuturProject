@@ -34,4 +34,8 @@ export class VehiculeService {
   getVehiculesFilterByBrand(brand: String) {
     return this.httpclient.get<Vehicule[]>(this.vehiculesFilterByBrandURL+brand);
   }
+
+  addVehicule(vehicule: Vehicule) {
+    return this.httpclient.post<Vehicule>(this.addVehiculeURL, vehicule, httpOptions);
+  }
 }
