@@ -19,6 +19,7 @@ export class VehiculeService {
   private vehiculesURL = "http://localhost:8080/api/v1/vehicles"
   private vehiculesFilterByColorURL = "http://localhost:8080/api/v1/vehicles/color/"
   private vehiculesFilterByBrandURL = "http://localhost:8080/api/v1/vehicles/brand/"
+  private addVehiculeURL = "http://localhost:8080/api/v1/vehicles/add"
 
   constructor(private httpclient: HttpClient) { }
 
