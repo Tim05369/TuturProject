@@ -2,38 +2,38 @@
 <div mat-dialog-content>
     <mat-form-field>
         <mat-label>Marque</mat-label>
-        <input required matInput [(ngModel)]="data.brand">
+        <input required matInput [(ngModel)]="data.brand" (change)="enableOrDisableButtonManageVehicule()">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Modèle</mat-label>
-        <input required matInput [(ngModel)]="data.model">
+        <input required matInput [(ngModel)]="data.model" (change)="enableOrDisableButtonManageVehicule()">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Couleur</mat-label>
-        <input required matInput type="text" [(ngModel)]="data.color">
+        <input required matInput type="text" [(ngModel)]="data.color" (change)="enableOrDisableButtonManageVehicule()">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Puissance (nb de cv)</mat-label>
-        <input required type="number" matInput [(ngModel)]="data.horsePower">
+        <input required type="number" matInput [(ngModel)]="data.horsePower" (change)="enableOrDisableButtonManageVehicule()">
     </mat-form-field>
     <mat-form-field>
         <mat-label>PrixAuKm</mat-label>
-        <input required type="number" matInput [(ngModel)]="data.kmPrice">
+        <input required type="number" matInput [(ngModel)]="data.kmPrice" (change)="enableOrDisableButtonManageVehicule()">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Plaque d'immatriculation</mat-label>
-        <input required matInput [(ngModel)]="data.licencePlate">
+        <input required matInput [(ngModel)]="data.licencePlate" (change)="enableOrDisableButtonManageVehicule()">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Prix de location</mat-label>
-        <input required type="number" matInput [(ngModel)]="data.rentalPrice">
+        <input required type="number" matInput [(ngModel)]="data.rentalPrice" (change)="enableOrDisableButtonManageVehicule()">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Url</mat-label>
-        <input required matInput [(ngModel)]="data.urlImg">
+        <input required matInput [(ngModel)]="data.urlImg" (change)="enableOrDisableButtonManageVehicule()">
     </mat-form-field>
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button (click)="manageVehicule(data)">Ok</button>
+    <button mat-button (click)="manageVehicule(data)" [disabled]="boutonSubmitVehiculeDisabled">Ok</button>
 </div>
