@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {VehiculeService} from "../vehicule.service";
-import {Vehicule} from "../Vehicule";
+import {Vehicule, vehiculeContainsAllKey, vehiculeContainsAllValues} from "../Vehicule";
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
@@ -68,6 +68,7 @@ export class DialogManageVehicule {
   titreFormulaire: String = "Ajouter une nouvelle voiture";
 
   public boutonSubmitVehiculeDisabled:boolean = true;
+  public valueButtonSubmit:String = "Ajouter";
 
   constructor(
       private vehiculeService: VehiculeService,
@@ -81,15 +82,10 @@ export class DialogManageVehicule {
 
   enableOrDisableButtonManageVehicule(){
     let vehicule = this.data;
+
     if(
-        vehicule.rentalPrice === null ||
-        vehicule.licencePlate === null || vehicule.licencePlate === "" ||
-        vehicule.kmPrice === null ||
-        vehicule.model === null || vehicule.model === "" ||
-        vehicule.color === null || vehicule.color === "" ||
-        vehicule.brand === null || vehicule.brand === "" ||
-        vehicule.horsePower === null ||
-        vehicule.urlImg === null || vehicule.urlImg === ""
+        vehiculeContainsAllKey(vehicule) ||
+        vehiculeContainsAllValues(vehicule)
     ){
       this.boutonSubmitVehiculeDisabled = true;
     }else{
