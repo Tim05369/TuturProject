@@ -34,6 +34,6 @@
     </mat-form-field>
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button (click)="manageVehicule(data)" [disabled]="boutonSubmitVehiculeDisabled">Ok</button>
+    <button mat-button (click)="onNoClick()">Annuler</button>
+    <button mat-button (click)="manageVehicule(data)" [disabled]="boutonSubmitVehiculeDisabled">{{valueButtonSubmit}}</button>
 </div>
