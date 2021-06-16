@@ -43,7 +43,7 @@ export class AdminComponent implements OnInit {
   }
 
   ajouterVehicule() {
-    //TODO
+    this.ouvrirDialogueFormVehicule(null);
   }
 
   editerVehicule(licencePlate: string) {
@@ -66,7 +66,7 @@ export class DialogManageVehicule {
 
   constructor(
       public dialogRef: MatDialogRef<DialogManageVehicule>,
-      @Inject(MAT_DIALOG_DATA) public data: Vehicule) {
+      @Inject(MAT_DIALOG_DATA) public data: Vehicule = {} as Vehicule) {
   }
 
   onNoClick(): void {
