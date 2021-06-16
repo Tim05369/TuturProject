@@ -37,6 +37,7 @@ export class VehiculeService {
 
   addVehicule(vehicule: Vehicule) {
     return this.httpclient.post<Vehicule>(this.addVehiculeURL, vehicule, httpOptions);
+  }
     
   delVehicule(licencePlate: string) {
     return this.httpclient.delete<Vehicule>(this.vehiculesURL + licencePlate);
