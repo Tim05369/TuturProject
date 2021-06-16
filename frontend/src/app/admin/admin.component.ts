@@ -65,6 +65,7 @@ export class DialogManageVehicule {
   titreFormulaire: String = "Ajouter une nouvelle voiture";
 
   constructor(
+      private vehiculeService: VehiculeService,
       public dialogRef: MatDialogRef<DialogManageVehicule>,
       @Inject(MAT_DIALOG_DATA) public data: Vehicule = {} as Vehicule) {
   }
@@ -74,6 +75,39 @@ export class DialogManageVehicule {
   }
 
   manageVehicule(data: Vehicule) {
+    let vehiculePeutEtreAjoute = true;
 
+    if(data.id == 0){
+      if(data.urlImg === null || data.urlImg === ""){
+        vehiculePeutEtreAjoute = false;
+      }
+    }
+
+    if(
+      data.rentalPrice === null ||
+      data.licencePlate === null || data.licencePlate === "" ||
+      data.kmPrice === null ||
+      data.model === null || data.model === "" ||
+      data.color === null || data.color === "" ||
+      data.brand === null || data.brand === "" ||
+      data.horsePower === null
+    ){
+      vehiculePeutEtreAjoute = false;
+    }
+
+    if(vehiculePeutEtreAjoute){
+      let vehiculeCreated = {};
+
+      this.vehiculeService.addVehicule(data).subscribe(
+          data=>
+          {
+            vehiculeCreated = data;
+          });
+
+      if(vehiculeCreated){
+        console.log(vehiculeCreated)
+        this.dialogRef.close(vehiculeCreated)
+      }
+    }
   }
 }
