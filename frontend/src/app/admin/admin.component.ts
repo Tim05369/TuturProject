@@ -101,16 +101,22 @@ export class DialogManageVehicule {
     }
   }
 
-  manageVehicule(data: Vehicule) {
-    let vehiculePeutEtreAjoute = true;
+  updateVehicule(data: Vehicule) {
+    let vehiculeCreated = {};
+    this.vehiculeService.updateVehicule(data).subscribe(data => {
+      vehiculeCreated = data
+    });
 
-    if(data.id == 0){
-      if(data.urlImg === null || data.urlImg === ""){
-        vehiculePeutEtreAjoute = false;
-      }
+    if (vehiculeCreated != {}) {
+      this.dialogRef.close()
     }
+  }
 
-    if(vehiculePeutEtreAjoute){
+  manageVehicule(data: Vehicule) {
+
+    if ("id" in data) {
+      this.updateVehicule(data);
+    } else {
       let vehiculeCreated = {};
 
       this.vehiculeService.addVehicule(data).subscribe(
