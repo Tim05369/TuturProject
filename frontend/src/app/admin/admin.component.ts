@@ -12,7 +12,7 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog
 export class AdminComponent implements OnInit {
 
 
-  constructor(private vehiculeService: VehiculeService) { }
+  constructor(private vehiculeService: VehiculeService, public dialog: MatDialog) { }
 
   listVehicule: Vehicule[] = [];
 
@@ -23,6 +23,23 @@ export class AdminComponent implements OnInit {
           this.listVehicule = data;
         }
     )
+  }
+
+
+  ouvrirDialogueFormVehicule(vehicule: Vehicule | null) {
+    if(vehicule == null){
+      vehicule = {} as Vehicule
+    }
+
+    const dialogRef = this.dialog.open(DialogManageVehicule, {
+      width: '250px',
+      data: vehicule
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      //this.vehiculeAjoutee = result;
+    });
   }
 
   ajouterVehicule() {
