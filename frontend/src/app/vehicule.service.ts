@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, of} from "rxjs";
 import {Vehicule} from "./Vehicule";
 import { catchError, map, tap } from 'rxjs/operators';
@@ -9,7 +9,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class VehiculeService {
 
-  private vehiculesURL = "http://localhost:8080/api/v1/vehicles"
+  private vehiculesURL = "http://localhost:8080/api/v1/vehicles/"
   private vehiculesFilterByColorURL = "http://localhost:8080/api/v1/vehicles/color/"
   private vehiculesFilterByBrandURL = "http://localhost:8080/api/v1/vehicles/brand/"
 
@@ -25,5 +25,9 @@ export class VehiculeService {
 
   getVehiculesFilterByBrand(brand: String) {
     return this.httpclient.get<Vehicule[]>(this.vehiculesFilterByBrandURL+brand);
+  }
+
+  delVehicule(licencePlate: string) {
+    return this.httpclient.delete<Vehicule>(this.vehiculesURL + licencePlate);
   }
 }
