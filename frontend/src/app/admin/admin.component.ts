@@ -17,6 +17,10 @@ export class AdminComponent implements OnInit {
   listVehicule: Vehicule[] = [];
 
   ngOnInit(): void {
+    this.listerVehicule();
+  }
+
+  listerVehicule(){
     this.vehiculeService.getVehicules().subscribe(
         data=>
         {
@@ -37,8 +41,10 @@ export class AdminComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      //this.vehiculeAjoutee = result;
+      if(result){
+        this.listVehicule[this.listVehicule.length] = result
+        console.log(result)
+      }
     });
   }
 
@@ -104,9 +110,8 @@ export class DialogManageVehicule {
             vehiculeCreated = data;
           });
 
-      if(vehiculeCreated){
-        console.log(vehiculeCreated)
-        this.dialogRef.close(vehiculeCreated)
+      if(vehiculeCreated != {}){
+        this.dialogRef.close()
       }
     }
   }
