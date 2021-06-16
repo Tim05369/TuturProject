@@ -49,8 +49,8 @@ export class AdminComponent implements OnInit {
     this.ouvrirDialogueFormVehicule(null);
   }
 
-  editerVehicule(licencePlate: string) {
-    //TODO
+  editerVehicule(vehicule: Vehicule) {
+    this.ouvrirDialogueFormVehicule(vehicule);
   }
 
   supprimerVehicule(licencePlate: string) {
