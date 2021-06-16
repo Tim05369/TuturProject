@@ -76,6 +76,7 @@ export class DialogManageVehicule {
   titreFormulaire: String = "Ajouter une nouvelle voiture";
 
   public boutonSubmitVehiculeDisabled:boolean = true;
+  public licencePlateDisabled: boolean = false;
   public valueButtonSubmit:String = "Ajouter";
 
   constructor(
@@ -86,6 +87,7 @@ export class DialogManageVehicule {
       this.titreFormulaire = "Modifier une voiture";
       this.valueButtonSubmit = "Modifier"
       this.boutonSubmitVehiculeDisabled = false;
+      this.licencePlateDisabled = true;
     }
   }
 
