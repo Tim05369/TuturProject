@@ -22,12 +22,12 @@ export function vehiculeContainsAllKey(vehicule: Vehicule) {
 }
 
 export function vehiculeContainsAllValues(vehicule: Vehicule){
-    return vehicule.rentalPrice === null ||
+    return !(vehicule.rentalPrice === null ||
         vehicule.licencePlate === null || vehicule.licencePlate === "" ||
         vehicule.kmPrice === null ||
         vehicule.model === null || vehicule.model === "" ||
         vehicule.color === null || vehicule.color === "" ||
         vehicule.brand === null || vehicule.brand === "" ||
         vehicule.horsePower === null ||
-        vehicule.urlImg === null || vehicule.urlImg === "";
+        vehicule.urlImg === null || vehicule.urlImg === "");
 }

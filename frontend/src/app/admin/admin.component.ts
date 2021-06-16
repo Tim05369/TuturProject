@@ -84,12 +84,12 @@ export class DialogManageVehicule {
     let vehicule = this.data;
 
     if(
-        vehiculeContainsAllKey(vehicule) ||
+        vehiculeContainsAllKey(vehicule) &&
         vehiculeContainsAllValues(vehicule)
     ){
-      this.boutonSubmitVehiculeDisabled = true;
-    }else{
       this.boutonSubmitVehiculeDisabled = false;
+    }else{
+      this.boutonSubmitVehiculeDisabled = true;
     }
   }
 
