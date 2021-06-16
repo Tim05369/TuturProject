@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {VehiculeService} from "../vehicule.service";
 import {Vehicule} from "../Vehicule";
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-admin',
@@ -34,5 +35,28 @@ export class AdminComponent implements OnInit {
 
   supprimerVehicule(licencePlate: string) {
     //TODO
+  }
+}
+
+
+
+@Component({
+  selector: 'dialog-manageVehicule',
+  templateUrl: 'dialog-manageVehicule.html',
+})
+export class DialogManageVehicule {
+  titreFormulaire: String = "Ajouter une nouvelle voiture";
+
+  constructor(
+      public dialogRef: MatDialogRef<DialogManageVehicule>,
+      @Inject(MAT_DIALOG_DATA) public data: Vehicule) {
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  manageVehicule(data: Vehicule) {
+
   }
 }
