@@ -67,6 +67,8 @@ export class AdminComponent implements OnInit {
 export class DialogManageVehicule {
   titreFormulaire: String = "Ajouter une nouvelle voiture";
 
+  public boutonSubmitVehiculeDisabled:boolean = true;
+
   constructor(
       private vehiculeService: VehiculeService,
       public dialogRef: MatDialogRef<DialogManageVehicule>,
@@ -77,6 +79,24 @@ export class DialogManageVehicule {
     this.dialogRef.close();
   }
 
+  enableOrDisableButtonManageVehicule(){
+    let vehicule = this.data;
+    if(
+        vehicule.rentalPrice === null ||
+        vehicule.licencePlate === null || vehicule.licencePlate === "" ||
+        vehicule.kmPrice === null ||
+        vehicule.model === null || vehicule.model === "" ||
+        vehicule.color === null || vehicule.color === "" ||
+        vehicule.brand === null || vehicule.brand === "" ||
+        vehicule.horsePower === null ||
+        vehicule.urlImg === null || vehicule.urlImg === ""
+    ){
+      this.boutonSubmitVehiculeDisabled = true;
+    }else{
+      this.boutonSubmitVehiculeDisabled = false;
+    }
+  }
+
   manageVehicule(data: Vehicule) {
     let vehiculePeutEtreAjoute = true;
 
@@ -84,18 +104,6 @@ export class DialogManageVehicule {
       if(data.urlImg === null || data.urlImg === ""){
         vehiculePeutEtreAjoute = false;
       }
-    }
-
-    if(
-      data.rentalPrice === null ||
-      data.licencePlate === null || data.licencePlate === "" ||
-      data.kmPrice === null ||
-      data.model === null || data.model === "" ||
-      data.color === null || data.color === "" ||
-      data.brand === null || data.brand === "" ||
-      data.horsePower === null
-    ){
-      vehiculePeutEtreAjoute = false;
     }
 
     if(vehiculePeutEtreAjoute){
