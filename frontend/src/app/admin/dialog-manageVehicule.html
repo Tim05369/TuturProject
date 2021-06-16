@@ -22,7 +22,7 @@
     </mat-form-field>
     <mat-form-field>
         <mat-label>Plaque d'immatriculation</mat-label>
-        <input required matInput [(ngModel)]="data.licencePlate" (change)="enableOrDisableButtonManageVehicule()">
+        <input required matInput [disabled]="licencePlateDisabled" [(ngModel)]="data.licencePlate" (change)="enableOrDisableButtonManageVehicule()">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Prix de location</mat-label>
