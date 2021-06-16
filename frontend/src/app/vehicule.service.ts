@@ -40,7 +40,7 @@ export class VehiculeService {
   }
 
   updateVehicule(vehicule: Vehicule) {
-    return this.httpclient.put<Vehicule>(this.addVehiculeURL, vehicule, httpOptions);
+    return this.httpclient.put<Vehicule>(this.vehiculesURL + vehicule.licencePlate, vehicule, httpOptions);
   }
     
   delVehicule(licencePlate: string) {
