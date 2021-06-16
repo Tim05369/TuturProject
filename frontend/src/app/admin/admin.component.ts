@@ -41,10 +41,7 @@ export class AdminComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result){
-        this.listVehicule[this.listVehicule.length] = result
-        console.log(result)
-      }
+      this.listerVehicule();
     });
   }
 
