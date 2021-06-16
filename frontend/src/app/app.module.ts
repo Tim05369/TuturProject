@@ -42,7 +42,7 @@ import {FormsModule} from "@angular/forms";
     MatCardModule,
     MatGridListModule,
     HttpClientModule,
-    MatTabsModule
+    MatTabsModule,
     MatInputModule,
     MatIconModule,
     FormsModule
