@@ -82,6 +82,11 @@ export class DialogManageVehicule {
       private vehiculeService: VehiculeService,
       public dialogRef: MatDialogRef<DialogManageVehicule>,
       @Inject(MAT_DIALOG_DATA) public data: Vehicule = {} as Vehicule) {
+    if(Object.keys(data).length > 0 && "id" in data){
+      this.titreFormulaire = "Modifier une voiture";
+      this.valueButtonSubmit = "Modifier"
+      this.boutonSubmitVehiculeDisabled = false;
+    }
   }
 
   onNoClick(): void {
