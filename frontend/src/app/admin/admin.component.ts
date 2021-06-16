@@ -54,7 +54,15 @@ export class AdminComponent implements OnInit {
   }
 
   supprimerVehicule(licencePlate: string) {
-    //TODO
+    this.vehiculeService.delVehicule(licencePlate).subscribe(value => {
+        this.vehiculeService.getVehicules().subscribe(
+            data=>
+            {
+              this.listVehicule = data;
+            }
+        )
+      }
+    )
   }
 }
 

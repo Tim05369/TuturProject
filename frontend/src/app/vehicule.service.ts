@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class VehiculeService {
 
-  private vehiculesURL = "http://localhost:8080/api/v1/vehicles"
+  private vehiculesURL = "http://localhost:8080/api/v1/vehicles/"
   private vehiculesFilterByColorURL = "http://localhost:8080/api/v1/vehicles/color/"
   private vehiculesFilterByBrandURL = "http://localhost:8080/api/v1/vehicles/brand/"
   private addVehiculeURL = "http://localhost:8080/api/v1/vehicles/add"
@@ -37,5 +37,8 @@ export class VehiculeService {
 
   addVehicule(vehicule: Vehicule) {
     return this.httpclient.post<Vehicule>(this.addVehiculeURL, vehicule, httpOptions);
+    
+  delVehicule(licencePlate: string) {
+    return this.httpclient.delete<Vehicule>(this.vehiculesURL + licencePlate);
   }
 }
