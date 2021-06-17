@@ -1,5 +1,5 @@
 // Straight Jasmine testing without Angular's testing support
-import {VehiculeService} from "../vehicule.service";
+import {VehiculeService} from "../services/vehicule.service";
 import {TestBed} from "@angular/core/testing";
 import {HttpClientModule} from "@angular/common/http";
 

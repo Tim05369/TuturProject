@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {VehiculeService} from "../vehicule.service";
-import {Vehicule, vehiculeContainsAllKey, vehiculeContainsAllValues} from "../Vehicule";
+import {VehiculeService} from "../services/vehicule.service";
+import {Vehicule, vehiculeContainsAllKey, vehiculeContainsAllValues} from "../interfaces/Vehicule";
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
