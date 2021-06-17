@@ -49,8 +49,8 @@ export class AdminComponent implements OnInit {
     this.ouvrirDialogueFormVehicule(null);
   }
 
-  editerVehicule(licencePlate: string) {
-    //TODO
+  editerVehicule(vehicule: Vehicule) {
+    this.ouvrirDialogueFormVehicule(vehicule);
   }
 
   supprimerVehicule(licencePlate: string) {
@@ -76,12 +76,19 @@ export class DialogManageVehicule {
   titreFormulaire: String = "Ajouter une nouvelle voiture";
 
   public boutonSubmitVehiculeDisabled:boolean = true;
+  public licencePlateDisabled: boolean = false;
   public valueButtonSubmit:String = "Ajouter";
 
   constructor(
       private vehiculeService: VehiculeService,
       public dialogRef: MatDialogRef<DialogManageVehicule>,
       @Inject(MAT_DIALOG_DATA) public data: Vehicule = {} as Vehicule) {
+    if(Object.keys(data).length > 0 && "id" in data){
+      this.titreFormulaire = "Modifier une voiture";
+      this.valueButtonSubmit = "Modifier"
+      this.boutonSubmitVehiculeDisabled = false;
+      this.licencePlateDisabled = true;
+    }
   }
 
   onNoClick(): void {
@@ -101,16 +108,22 @@ export class DialogManageVehicule {
     }
   }
 
-  manageVehicule(data: Vehicule) {
-    let vehiculePeutEtreAjoute = true;
+  updateVehicule(data: Vehicule) {
+    let vehiculeCreated = {};
+    this.vehiculeService.updateVehicule(data).subscribe(data => {
+      vehiculeCreated = data
+    });
 
-    if(data.id == 0){
-      if(data.urlImg === null || data.urlImg === ""){
-        vehiculePeutEtreAjoute = false;
-      }
+    if (vehiculeCreated != {}) {
+      this.dialogRef.close()
     }
+  }
 
-    if(vehiculePeutEtreAjoute){
+  manageVehicule(data: Vehicule) {
+
+    if ("id" in data) {
+      this.updateVehicule(data);
+    } else {
       let vehiculeCreated = {};
 
       this.vehiculeService.addVehicule(data).subscribe(
